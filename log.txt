@@ -1,0 +1,211 @@
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:42]
+└─[$] <> git config --global user.name "Albert-MoDz"
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:42]
+└─[$] <> git config --global user.email "escobar.alberto@correounivalle.edu.co" 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:42]
+└─[$] <> git init                                   
+Inicializado repositorio Git vacío en /home/albert-modz/git_taller/.git/
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:42]
+└─[$] <git:(facture)> git checkout -b master  
+Cambiado a nueva rama 'master'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:43]
+└─[$] <git:(master)> git config --list                          
+user.name=Albert-MoDz
+user.email=escobar.alberto@correounivalle.edu.co
+init.defaultbranch=facture
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:44]
+└─[$] <git:(master)> git branch               
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:44]
+└─[$] <git:(master)> touch index.html 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:45]
+└─[$] <git:(master*)> git status       
+En la rama master
+
+No hay commits todavía
+
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que será confirmado)
+	index.html
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:45]
+└─[$] <git:(master*)> git add index.html 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:46]
+└─[$] <git:(master*)> git commit -m "mi primer commit"
+[master (commit-raíz) 6a8bf86] mi primer commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:47]
+└─[$] <git:(master)> git status                      
+En la rama master
+nada para hacer commit, el árbol de trabajo está limpio
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:47]
+└─[$] <git:(master)> git branch
+* master
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:47]
+└─[$] <git:(master)> git checkout -p feature         
+No changes.
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:47]
+└─[$] <git:(master)> git checkout -b feature 
+Cambiado a nueva rama 'feature'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:48]
+└─[$] <git:(feature)> echo "texto agregado en rama feature" >> archivo.txt
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:50]
+└─[$] <git:(feature*)> git add archivo.txt    
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:53]
+└─[$] <git:(feature*)> git commit -m "Commit inicial"  
+[feature 7b92c72] Commit inicial
+ 1 file changed, 1 insertion(+)
+ create mode 100644 archivo.txt
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:55]
+└─[$] <git:(feature)> echo "texto agregado en facture" >> archivo.txt     
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:55]
+└─[$] <git:(feature*)> git commit -m "segundo commit en feature"
+En la rama feature
+Cambios no rastreados para el commit:
+  (usa "git add <archivo>..." para actualizar lo que será confirmado)
+  (usa "git restore <archivo>..." para descartar los cambios en el directorio de trabajo)
+	modificados:     archivo.txt
+
+sin cambios agregados al commit (usa "git add" y/o "git commit -a")
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:56]
+└─[$] <git:(feature*)> git commit -am "segundo commit en feature"
+[feature 9fd4bd9] segundo commit en feature
+ 1 file changed, 1 insertion(+)
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:57]
+└─[$] <git:(feature)> git checkout master                       
+Cambiado a rama 'master'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:59]
+└─[$] <git:(master)> git merge feature  
+Actualizando 6a8bf86..9fd4bd9
+Fast-forward
+ archivo.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 archivo.txt
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 20:59]
+└─[$] <git:(master)> git log --oneline
+9fd4bd9 (HEAD -> master, feature
+) segundo commit en feature
+7b92c72 Commit inicial
+6a8bf86 mi primer commit
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:04]
+└─[$] <git:(master)> git reset --hard 9fd4bd9
+HEAD está ahora en 9fd4bd9 segundo commit en feature
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:05]
+└─[$] <git:(master)> git rebase feature      
+La rama actual master está actualizada.
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:08]
+└─[$] <git:(master)> git branch        
+  feature
+* master
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:08]
+└─[$] <git:(master)> git checkout -b hotfix 
+Cambiado a nueva rama 'hotfix'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:09]
+└─[$] <git:(hotfix)> git branch            
+  feature
+* hotfix
+  master
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:11]
+└─[$] <git:(hotfix)> echo "Correccion urgente" >> archivo.txt 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:12]
+└─[$] <git:(hotfix*)> git commit -am "Hotfix"                   
+[hotfix 8e76259] Hotfix
+ 1 file changed, 1 insertion(+)
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:16]
+└─[$] <git:(hotfix)> git checkout master    
+Cambiado a rama 'master'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:17]
+└─[$] <git:(master)> git log --graph --oneline --all
+
+* 8e76259 (hotfix) Hotfix
+* 9fd4bd9 (HEAD -> master, feature
+) segundo commit en feature
+* 7b92c72 Commit inicial
+* 6a8bf86 mi primer commit
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:27]
+└─[$] <git:(master)> git checkout feature           
+Cambiado a rama 'feature'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:49]
+└─[$] <git:(feature)> echo "cambio en feature" >> conflicto.txt 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:50]
+└─[$] <git:(feature*)> git commit -am "cambio en feature"
+En la rama feature
+Archivos sin seguimiento:
+  (usa "git add <archivo>..." para incluirlo a lo que será confirmado)
+	conflicto.txt
+
+no hay nada agregado al commit pero hay archivos sin seguimiento presentes (usa "git add" para hacerles seguimiento)
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:50]
+└─[$] <git:(feature*)> git log --oneline                 
+9fd4bd9 (HEAD -> feature, master) segundo commit en feature
+7b92c72 Commit inicial
+6a8bf86 mi primer commit
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:51]
+└─[$] <git:(feature*)> git add conflicto.txt                     
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:52]
+└─[$] <git:(feature*)> git checkout master               
+A	conflicto.txt
+Cambiado a rama 'master'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:52]
+└─[$] <git:(master*)> echo "cambio en master" >> conflicto.txt 
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:53]
+└─[$] <git:(master*)> git add conflicto.txt
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:53]
+└─[$] <git:(master*)> git commit -am "cambio en master" 
+[master 953f83f] cambio en master
+ 1 file changed, 2 insertions(+)
+ create mode 100644 conflicto.txt
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:54]
+└─[$] <git:(master)> git log --graph --oneline --all
+
+* 953f83f (HEAD -> master) cambio en master
+| * 8e76259 (hotfix) Hotfix
+|/  
+* 9fd4bd9 (feature) segundo commit en feature
+* 7b92c72 Commit inicial
+* 6a8bf86 mi primer commit
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:54]
+└─[$] <git:(master)> git merge feature              
+Ya está actualizado.
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:55]
+└─[$] <git:(master)> git log --graph --oneline --all
+
+* 953f83f (HEAD -> master) cambio en master
+| * 8e76259 (hotfix) Hotfix
+|/  
+* 9fd4bd9 (feature) segundo commit en feature
+* 7b92c72 Commit inicial
+* 6a8bf86 mi primer commit
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 21:58]
+└─[$] <git:(master)> git revert -m 953f83f          
+error: opción `mainline' espera un valor numérico mayor a cero
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:02]
+└─[$] <git:(master)> git revert -m 1 953f83f
+ayuda: Esperando que tu editor cierre el archivo ... error: cannot run vi: No existe el fichero o el directorio
+error: unable to start editor 'vi'
+Por favor suministra el mensaje usando las opciones -m o -F.
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:03]
+└─[$] <git:(master*)> git revert -m 1 953f83f
+error: tus cambios locales serán sobreescritos por revertir.
+hint: realiza un commit con tus cambios o haz un stash para proceder.
+fatal: falló al revertir
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:10]
+└─[$] <git:(master*)> git checkout master
+D	conflicto.txt
+Ya en 'master'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:34]
+└─[$] <git:(master*)> ls -l   
+.rw-r--r-- 57 albert-modz  6 oct 21:16  archivo.txt
+.rw-r--r--  0 albert-modz  6 oct 20:45  index.html
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:34]
+└─[$] <git:(master*)> git checkout feature
+Cambiado a rama 'feature'
+┌─[albert-modz@modz] - [~/git_taller] - [dom oct 06, 22:35]
+└─[$] <git:(feature)> ls -l               
+.rw-r--r-- 57 albert-modz  6 oct 21:16  archivo.txt
+.rw-r--r--  0 albert-modz  6 oct 20:45  index.html
